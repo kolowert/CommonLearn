@@ -1,6 +1,6 @@
 package fun.kolowert.learning.cloning;
 
-public class ClonerPlayer {
+public class AppCloner {
 
 	public static void main(String[] args) {
 

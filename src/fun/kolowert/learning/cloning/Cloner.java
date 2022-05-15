@@ -11,6 +11,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * it contains Overridden method cloner() witch works by streaming Object and read it back
+ * this approach provide ~ deep copy of Object and its independent clone-instance  
+ */
 public class Cloner implements Cloneable, Serializable {
 
 	private static final long serialVersionUID = 1650737543L;

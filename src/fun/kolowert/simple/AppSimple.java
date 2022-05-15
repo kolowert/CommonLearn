@@ -1,8 +1,12 @@
 package fun.kolowert.simple;
 
-public class App {
+/**
+ * It is to run by command line and learn how Class from other file is compiled & used 
+ */
+public class AppSimple {
 
 	public static void main(String[] args) {
+		// just comment
 		System.out.println("hello Simple!");
 		if (args.length != 0) {
 			for (int i = 0; i < args.length; i++) {
@@ -17,17 +21,22 @@ public class App {
 
 }
 
-class Next {
+class First {
 
 	private int id;
 	private String s;
 
-	public Next(int number, String input) {
+	public First(int number, String input) {
 		id = number;
 		s = input;
 	}
 
 	public void report() {
 		System.out.println("number " + id + " : " + s);
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("id %d  value %s", id, s);
 	}
 }
