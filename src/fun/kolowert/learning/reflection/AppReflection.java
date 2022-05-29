@@ -4,13 +4,15 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
+import fun.kolowert.learning.common.*;
+
 public class AppReflection {
 
 	public static void main(String[] args) {
 
 		Foo foo = new Foo(128, "Name for Foo", new int[] { 1, 4, 9, 2 });
 		
-		foo.getNaskSum();
+		foo.getMaskSum();
 		foo.getMaskProduct();
 		
 		System.out.println("foo: " + foo.toString());
@@ -30,8 +32,20 @@ public class AppReflection {
 		
 		// field play
 		Field[] declaredFields = fooClass.getDeclaredFields();
-		System.out.println("field play~\n" + Arrays.toString(declaredFields));
+		System.out.println("field play | declared fields");
+		for (Field field : declaredFields) {
+			System.out.println("field: " + field);
+		}
 		
+		// more class play
+		System.out.println("\n~~~ more class play ~~~");
+		Class<? extends F> cls = foo.getClass();
+		Class<?> scls = cls.getSuperclass();
+		System.out.println("Superclass: " + scls);
+		Class<?>[] ifs = cls.getInterfaces();
+		System.out.println("Foo interfaces: " + Arrays.toString(ifs));
+		Class<?>[] ifss = scls.getInterfaces();
+		System.out.println("Fo interfaces: " + Arrays.toString(ifss));
 	}
 
 }

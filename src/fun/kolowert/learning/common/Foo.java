@@ -1,8 +1,8 @@
-package fun.kolowert.learning.rizne;
+package fun.kolowert.learning.common;
 
 import java.util.Arrays;
 
-public class Foo {
+public class Foo extends Fo implements Intrfc {
 
 	private final int id;
 	private final String name;
@@ -19,8 +19,9 @@ public class Foo {
 		this.name = name;
 		this.mask = mask;
 	}
-
-	public int getNaskSum() {
+	
+	@Override
+	public int getMaskSum() {
 		if (!isSumCounted) {
 			int sum = 0;
 			for (int n : mask) {
@@ -32,6 +33,7 @@ public class Foo {
 		return maskSum;
 	}
 
+	@Override
 	public int getMaskProduct() {
 		if (!isProductCounted) {
 			int prod = 1;
@@ -45,9 +47,20 @@ public class Foo {
 	}
 
 	@Override
+	public void setMaskProduct(int input) {
+		maskProduct = input;
+	}
+	
+	@Override
+	public double getPi() {
+		return PI;
+	}
+	
+	@Override
 	public String toString() {
 		return "Foo [id=" + id + ", name=" + name + ", mask=" + Arrays.toString(mask) + ", maskSum="
 				+ (isSumCounted ? maskSum : "Not Counted") + ", maskProduct="
 				+ (isProductCounted ? maskProduct : "Not Counted") + "]";
 	}
+	
 }
