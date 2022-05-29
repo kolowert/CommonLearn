@@ -5,11 +5,36 @@ import javax.sound.sampled.LineUnavailableException;
 public class SoundPlay {
 
 	public static void main(String[] args) throws LineUnavailableException, InterruptedException {
-
-		play2();
+		
+		System.out.println("main started");
+		play3();
+		play3();
+		System.out.println("main finished");
 
 	}
-
+	
+	public static void play3() {
+		System.out.println("play3 started");
+		
+		Thread beeper1 = new Thread(new Beeper("1"), "Beeper1");
+		Thread basser1 = new Thread(new Beeper("8", true), "Bass1");
+		Thread basser2 = new Thread(new Beeper("9", true), "Bass2");
+		
+		beeper1.start();
+		basser1.start();
+		basser2.start();
+		
+		try {
+			beeper1.join();
+			basser1.join();
+			basser2.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("\nplay3 finished");
+	}
+	
+	
 	public static void play2() throws LineUnavailableException, InterruptedException {
 		System.out.println("play2");
 
