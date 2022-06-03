@@ -22,7 +22,7 @@ public class SoundPlay {
 		
 		beeper1.start();
 		basser1.start();
-		basser2.start();
+		//basser2.start();
 		
 		try {
 			beeper1.join();
